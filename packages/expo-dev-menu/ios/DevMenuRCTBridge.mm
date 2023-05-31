@@ -39,7 +39,7 @@
 #endif
 
 
-#if RCT_NEW_ARCH_ENABLED
+#ifdef RCT_NEW_ARCH_ENABLED
 #import <ReactCommon/RCTTurboModuleManager.h>
 #endif
 #import "React/RCTAppSetupUtils.h"
@@ -123,7 +123,7 @@
 
 - (std::unique_ptr<facebook::react::JSExecutorFactory>)jsExecutorFactoryForBridge:(RCTBridge *)bridge
 {
-  #if RCT_NEW_ARCH_ENABLED
+  #ifdef RCT_NEW_ARCH_ENABLED
     self.turboModuleManager = [[RCTTurboModuleManager alloc] initWithBridge:bridge
                                                                   delegate:(id<RCTTurboModuleManagerDelegate>)self
                                                                   jsInvoker:bridge.jsCallInvoker];
